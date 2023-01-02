@@ -2,13 +2,14 @@ package jpabook.jpashop.domain;
 
 import javax.persistence.*;
 
-public class Derivery {
+@Entity
+public class Delivery {
     @Id
     @GeneratedValue
     @Column(name = "item_id")
     private Long id;
 
-    @OneToOne(mappedBy = "delivery")
+    @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
     private Order order;
 
     @Embedded
