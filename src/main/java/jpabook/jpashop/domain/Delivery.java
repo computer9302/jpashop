@@ -1,8 +1,12 @@
 package jpabook.jpashop.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter @Setter
 public class Delivery {
     @Id
     @GeneratedValue
@@ -16,6 +20,6 @@ public class Delivery {
     private  Address address;
 
     @Enumerated(EnumType.STRING)
-    private DeleveryStatus status; // READY, COMP
+    private DeliveryStatus status; // READY, COMP
 
 }
