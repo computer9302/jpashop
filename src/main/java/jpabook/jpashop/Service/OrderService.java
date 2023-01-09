@@ -15,14 +15,17 @@ import java.util.List;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class OrderService {
-    private MemberRepository memberRepository;
-    private ItemRepository itemRepository;
-    private OrderRepository orderRepository;
+    private final MemberRepository memberRepository;
+    private final ItemRepository itemRepository;
+    private final OrderRepository orderRepository;
 
     /** 주문 */
+    @Transactional
+    //읽기만 하는게 아니라 뭔가가 바뀔때 아마 db에 저장이나 수정이 일어날때 transactional을 붙인다
     public Long order(Long memberId, Long itemId, int count){
         //엔터티 조회
-        Member member = memberRepository.findOne(memberId);
+        Member member =memberRepository.findOne(memberId);
+      
         Item item = itemRepository.findOne(itemId);
 
         //배송정보 생성

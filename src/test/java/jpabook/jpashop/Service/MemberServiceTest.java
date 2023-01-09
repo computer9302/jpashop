@@ -28,8 +28,6 @@ public class MemberServiceTest {
     EntityManager em;
 
     @Test
-
-
     public void join() throws Exception{
         //given
         Member member = new Member();

@@ -8,6 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
+
+
 @Repository
 @RequiredArgsConstructor
 public class MemberRepository {
@@ -18,9 +20,7 @@ public class MemberRepository {
         em.persist(member);
     }
 
-    public Member findOne(Long id) {
-        return em.find(Member.class, id);
-    }
+    public Member findOne(Long id) {return em.find(Member.class, id);}
 
     public List<Member> findAll() {
 
